@@ -19,10 +19,12 @@
 body {
     scroll-behavior: smooth;
     font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to bottom, var(--background-dark), var(--main-dark), var(--main-dark)) ;
+}
+
+.page-container {
     overflow-x: hidden;
     overflow-y: visible;
-    background-image: linear-gradient(to bottom, var(--background-dark), var(--main-dark), var(--main-dark)) ;
-    
 }
 
 img {
@@ -63,7 +65,7 @@ h1 {
     font-size: 3rem;
 }
 
-.nav-ul li{
+.nav-ul li {
     display: inline-block;
     padding: 2rem 3rem;
     font-size: 1.3rem;
@@ -232,6 +234,8 @@ h1 {
 .img-container {
     width: 17rem;
     height: 17rem;
+    /* width: 17rem;
+    height: 17rem; */
     position: relative;
     flex: 1;
     margin: 2rem;
@@ -347,7 +351,7 @@ and used alot of it here */
 #contact {
     max-width: 1100px;
     margin: 3rem auto 3rem auto;
-    height: 90vh;
+    height: 80vh;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -362,7 +366,6 @@ and used alot of it here */
     right: 0;
     z-index: -2;
     margin: auto 10% auto 0;
-    border-radius: 4px;
 }
 
 .contact-img {
@@ -370,6 +373,8 @@ and used alot of it here */
     height: 100%;
     width: 100%;
     object-fit: cover;
+    object-position: 0 50%;
+    border-radius: 4px;
     /* top: 0;
     right: 0;
     z-index: -2;
@@ -400,6 +405,7 @@ and used alot of it here */
     border-radius: 5px;
     overflow: hidden;
     margin-left: 10%;
+    box-shadow: 0 7px 10px rgba(22, 22, 22, 0.8);
 }
 
 /* .form-container::before {
@@ -425,7 +431,9 @@ and used alot of it here */
 .form {
     padding: 1.5rem;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80%;
     width: 100%;
 }
 
@@ -494,21 +502,33 @@ and used alot of it here */
     border: 1px solid rgb(22, 114, 22);
 }
 
+/* Footer */
+
+.footer {
+    background: rgb(12, 11, 11);
+    font-size: 1.2rem;
+    color: var(--main-color);
+    text-align: center;
+    padding: 1rem;
+}
+
+
 @keyframes showContent {
     from {transform: translateX(1000px); opacity: 0;}
     to {transform: translateX(0); opacity:1;}
 }
 
 @media screen and (max-width: 790px) {
-    .showcase-content {
-        left: 30%;
+    .showcase-content h1 {
+        font-size: 2rem;
+    }
+
+    .showcase-content h3 {
+        font-size: 1.6rem;
     }
 }
 
-@media screen and (max-width: 750px) {
-    /* body {
-        overflow-x: hidden;
-    } */
+@media screen and (max-width: 768px) {
 
     .nav-container {
         height: 5.5rem;
@@ -596,16 +616,79 @@ and used alot of it here */
         transform: translateX(50px);
         opacity: 0;
     }
+
+    .showcase {
+        height: 60vh;
+    }
+
+    #about {
+        height: 70vh;
+    }
+
+    #about img {
+        height: 100%;
+        object-position: 70% 50%;
+    }
   
+    .about-text {
+        height: 100%;
+        width: 60%;
+        top: 0;
+        left: 40%;
+        justify-content: space-evenly;
+    }
+
+    
+
+    .img-container {
+        flex: 1;
+    }
+
+    .text-container {
+        flex: 1;
+
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    .img-container {
+    width: 13rem;
+    height: 13rem;
+    }
+
+
 }
 
 @media screen and (max-width: 480px) {
+
+    /* Showcase/landing */
+    .showcase-content {
+        position: absolute;
+        top: 77%;
+        left: 30%;
+        text-align: center;
+        z-index: 1;
+        color: #fff;
+        margin: auto;
+        padding: 1rem;
+    }
+    .showcase-text h1 {
+        font-size: 1.5rem;
+    }
+    .showcase-text h3 {
+        font-size: 1rem;
+        transform: translateX(-20px);
+    }
+
+    /* Abuot-page styling */
+    #about {
+        height: 100vh;
+    }
     #about img {
         display: none;
     }
     .about-text {
-        /* position: absolute; */
-        /* background-image: linear-gradient(to right, rgb(255, 255, 255, 0),rgb(255, 255, 255, 1), rgb(255, 255, 255, 1) ,rgb(255, 255, 255, 1), rgb(255, 255, 255, 1)); */
         padding: 2rem;
         background: #fff;
         top: 10%;
@@ -616,5 +699,70 @@ and used alot of it here */
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+    }
+    .about-text .presentation {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        margin-left: 0;
+    }
+    
+    .about-text h3 {
+        margin: 1rem 0;
+    }
+    
+    .edu {
+        margin-left: 0;
+    }
+
+    /* Collaborations styling */
+
+    #colab {
+        padding: 1rem 0;
+    }
+
+    .article-container {
+        flex-direction: column-reverse;
+        background: #fff;
+        margin: 2rem;
+        box-shadow: 0 2px 5px rgba(0, 0,0,0.3);
+    }
+
+    .img-container {
+        margin: auto;
+        overflow: hidden;
+        box-shadow: none;
+    }
+    .text-container {
+        margin: 0;
+        box-shadow: none;
+        text-align: center;
+    }
+
+    .colab-img {
+        padding-bottom: 1rem;
+    }
+
+    .article-container:first-child {
+        padding-top: 0;
+    }
+
+    .article-container:last-child {
+        padding-bottom: 0;
+    }
+
+    /* Form styling */
+    
+    .form-container {
+        height: 80%;
+        margin: 0 auto;
+    }
+
+    #contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-img {
+        display: none;
     }
 }

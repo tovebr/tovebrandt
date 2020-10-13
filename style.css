@@ -13,13 +13,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    scroll-behavior: smooth;
 }
 
 body {
-    scroll-behavior: smooth;
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(to bottom, var(--background-dark), var(--main-dark), var(--main-dark)) ;
+    background-image: linear-gradient(to bottom, var(--background-dark), var(--main-dark), var(--main-dark), var(--main-dark), var(--background-dark)) ;
 }
 
 .page-container {
@@ -57,6 +56,10 @@ h1 {
 .nav-bar {
     background: black;
     height: 5.5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
 }
 
 .nav-bar h2 {
@@ -78,7 +81,7 @@ h1 {
 }
 
 .nav-ul  li a {
-    color: rgb(25, 148, 136);
+    color: rgb(96, 182, 173);
     transition: color 1s;
 }
 .nav-ul  li a:hover {
@@ -95,7 +98,7 @@ h1 {
 
 .showcase {
     position: relative;
-    height: 92vh;
+    height: 100vh;
     width: 100%;
 }
 .showcase img {
@@ -186,19 +189,19 @@ h1 {
     background-image: linear-gradient(to right, rgb(255, 255, 255, 0),rgb(255, 255, 255, 1), rgb(255, 255, 255, 1) ,rgb(255, 255, 255, 1), rgb(255, 255, 255, 1));
     padding: 2rem;
     top: 10%;
-    left: 60%;
+    left: 50%;
     right: 10%;
     height: 80%;
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .about-text .presentation {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    margin-left: 4rem;
+    padding-left: 7rem;
 }
 
 .about-text h3 {
@@ -206,7 +209,7 @@ h1 {
 }
 
 .edu {
-    margin-left: 4rem;
+    padding-left: 7rem;
 }
 
 .about-text a {
@@ -483,6 +486,14 @@ and used alot of it here */
 
 .submit {
     width: 100%;
+    background-color: var(--main-color);
+    font-size: 1rem;
+    transition: background .5s, color .1s;
+}
+
+.submit:hover {
+    background: rgb(21, 104, 96);
+    color: #fff;
 }
 
 .form-section.error .fa-exclamation-circle{
@@ -671,11 +682,6 @@ and used alot of it here */
         justify-content: center;
         background-image: linear-gradient(to right, rgb(255, 255, 255, 0),rgb(255, 255, 255, 1), rgb(255, 255, 255, 1) ,rgb(255, 255, 255, 1), rgb(255, 255, 255, 1));
     }
-
-    .about-text .presentation,
-    .about-text .edu {
-        padding-left: 3rem;
-    }
     
 
     .img-container {
@@ -816,7 +822,7 @@ and used alot of it here */
     /* Form styling */
     
     .form-container {
-        height: 85%;
+        height: 95%;
         margin: 0 auto;
     }
 

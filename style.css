@@ -540,7 +540,7 @@ and used alot of it here */
         position: absolute;
         display: block;
         top: 30%;
-        right: 8%;
+        right: 15%;
     }
     
     .nav-toggle input {
@@ -618,7 +618,7 @@ and used alot of it here */
     }
 
     .showcase {
-        height: 60vh;
+        height: 90vh;
     }
 
     #about {

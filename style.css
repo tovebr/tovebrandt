@@ -51,6 +51,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 5.5rem;
 }
 
 .nav-bar {
@@ -60,23 +61,28 @@ h1 {
 
 .nav-bar h2 {
     font-family: 'Secular One', sans-serif;
-    color: blanchedalmond;
+    color: #fff;
     padding-left: 2rem;
     font-size: 3rem;
 }
 
 .nav-ul li {
     display: inline-block;
-    padding: 2rem 3rem;
+    padding: 2rem 2rem;
     font-size: 1.3rem;
+    transition: background 1s;
 }
 
 .nav-bar li:hover {
     background: var(--main-dark);
 }
 
-.nav-ul a {
-    color: var(--main-light)
+.nav-ul  li a {
+    color: rgb(25, 148, 136);
+    transition: color 1s;
+}
+.nav-ul  li a:hover {
+    color: rgb(205, 248, 239);
 }
 
 .nav-toggle input,
@@ -526,6 +532,24 @@ and used alot of it here */
     .showcase-content h3 {
         font-size: 1.6rem;
     }
+
+    #about img {
+        object-position: 90% 50%;
+    }
+  
+    .about-text {
+        height: 80%;
+        width: 70%;
+        top: 10%;
+        left: 30%;
+        justify-content: center;
+        background-image: linear-gradient(to right, rgb(255, 255, 255, 0),rgb(255, 255, 255, 1), rgb(255, 255, 255, 1) ,rgb(255, 255, 255, 1), rgb(255, 255, 255, 1));
+    }
+
+    .about-text .presentation,
+    .about-text .edu {
+        padding-left: 3rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -583,15 +607,25 @@ and used alot of it here */
         position: absolute;
         z-index: 3;
         margin-top: 62px;
-        margin-left: 60px;
+        margin-left: 87px;
         transform: translateX(60px);
         background: var(--dark);
         display: inline-block;
+        
     }
 
     .nav-ul li {
         text-align: right;
         display: block;
+        border-bottom: rgb(45, 151, 141) 1px dotted;
+    }
+
+    .nav-ul li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-ul li a {
+        color: #fff;
     }
 
     .nav-toggle input:checked ~ .nav-ul {
@@ -627,7 +661,6 @@ and used alot of it here */
 
     #about img {
         height: 100%;
-        object-position: 90% 50%;
     }
   
     .about-text {

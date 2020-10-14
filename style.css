@@ -18,12 +18,13 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(to bottom, var(--background-dark), var(--main-dark), var(--main-dark), var(--main-dark), var(--background-dark)) ;
+    background-image: linear-gradient(to bottom, var(--background-dark),  var(--background-dark), var(--main-dark), var(--main-dark), var(--background-dark)) ;
 }
 
 .page-container {
-    overflow-x: hidden;
-    overflow-y: visible;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
+    overflow: hidden;
 }
 
 img {
@@ -46,23 +47,23 @@ h1 {
 
 .nav-container {
     max-width: 1500px;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 5.5rem;
+    height: 4.5rem;
 }
 
 .nav-bar {
     background: black;
-    height: 5.5rem;
+    height: 4.5rem;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 5;
 }
 
-.nav-bar h2 {
+.nav-bar h2 a {
     font-family: 'Secular One', sans-serif;
     color: #fff;
     padding-left: 2rem;
@@ -71,8 +72,8 @@ h1 {
 
 .nav-ul li {
     display: inline-block;
-    padding: 2rem 2rem;
-    font-size: 1.3rem;
+    padding: 1.6rem 1.5rem;
+    font-size: 1.1rem;
     transition: background 1s;
 }
 
@@ -173,7 +174,6 @@ h1 {
     display: flex;
     height: 100vh;
     position: relative;
-    
 }
 
 #about img {
@@ -410,7 +410,7 @@ and used alot of it here */
     position: absolute;
     max-width: 20rem;
     height: 70%;
-    background: var(--main-light);
+    background: rgb(214, 253, 245);
     border-radius: 5px;
     overflow: hidden;
     margin-left: 10%;
@@ -475,6 +475,13 @@ and used alot of it here */
     border: 1px solid #333;
 }
 
+.form input:focus,
+.form textarea:focus {
+    outline: none;
+    border: rgb(15, 57, 105) 1.3px solid;
+    box-shadow: 0 1px 5px var(--main-dark);
+}
+
 .form input {
     width: 100%;
 }
@@ -523,7 +530,7 @@ and used alot of it here */
 
 .footer {
     background: rgb(12, 11, 11);
-    font-size: 1.2rem;
+    font-size: .9rem;
     color: var(--main-color);
     text-align: center;
     padding: 1rem;
@@ -566,7 +573,7 @@ and used alot of it here */
 @media screen and (max-width: 768px) {
 
     .nav-container {
-        height: 5.5rem;
+        height: 4.5rem;
         align-items: center;
         position: relative;
     }
@@ -574,8 +581,8 @@ and used alot of it here */
     .nav-toggle {
         position: absolute;
         display: block;
-        top: 30%;
-        right: 8%;
+        top: 20%;
+        right: 7%;
     }
     
     .nav-toggle input {
@@ -617,12 +624,11 @@ and used alot of it here */
     .nav-ul {
         position: absolute;
         z-index: 3;
-        margin-top: 62px;
-        margin-left: 87px;
+        margin-top: 58px;
+        margin-left: 114px;
         transform: translateX(60px);
         background: var(--dark);
         display: inline-block;
-        
     }
 
     .nav-ul li {
@@ -641,7 +647,7 @@ and used alot of it here */
 
     .nav-toggle input:checked ~ .nav-ul {
         transform: translateX(-220px);
-        transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) .5s;
+        transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1) .5s;
     }
 
     .nav-toggle input:not(:checked) ~ .nav-ul {

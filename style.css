@@ -384,49 +384,18 @@ and used alot of it here */
     object-fit: cover;
     object-position: 0 50%;
     border-radius: 4px;
-    /* top: 0;
-    right: 0;
-    z-index: -2;
-    margin: auto 10% auto 0;
-    border-radius: 4px; */
 }
-
-/* #contact img {
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-} */
-
-/* .contact-img-div::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: mediumturquoise;
-    z-index: -1;
-} */
 
 .form-container {
     position: absolute;
     max-width: 20rem;
     height: 70%;
     background: rgb(214, 253, 245);
-    border-radius: 5px;
+    /* border-radius: 5px; */
     overflow: hidden;
     margin-left: 10%;
     box-shadow: 0 7px 10px rgba(22, 22, 22, 0.8);
 }
-
-/* .form-container::before {
-    position: absolute ;
-    content: '';
-    background-color: mediumturquoise;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 5;
-} */
 
 .form-header {
     background: rgb(174, 245, 242);
@@ -441,7 +410,7 @@ and used alot of it here */
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     height: 80%;
     width: 100%;
 }
@@ -471,7 +440,7 @@ and used alot of it here */
 .form textarea,
 .form button {
     padding: .3rem;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     border: 1px solid #333;
 }
 
@@ -508,7 +477,8 @@ and used alot of it here */
     color: rgb(223, 59, 37);
 }
 
-.form-section.error input{
+.form-section.error input,
+.form-section.error textarea{
     border: 1px solid rgb(223, 59, 37);
 }
 
@@ -689,6 +659,9 @@ and used alot of it here */
         background-image: linear-gradient(to right, rgb(255, 255, 255, 0),rgb(255, 255, 255, 1), rgb(255, 255, 255, 1) ,rgb(255, 255, 255, 1), rgb(255, 255, 255, 1));
     }
     
+    .about-text >* {
+        margin-left: 5rem;
+    }
 
     .img-container {
         flex: 1;
@@ -727,36 +700,32 @@ and used alot of it here */
     .img-container:hover a:hover {
         background: rgb(236, 235, 235, .3);
     }
+
+    /* Form styling */
+
+    #contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-img {
+        display: none;
+    }
+    
+    .form-container {
+        margin: 0 auto;
+    }
 }
 
-@media screen and (max-width: 480px) {
-
-    /* Showcase/landing */
-    .showcase-content {
-        position: absolute;
-        top: 77%;
-        left: 30%;
-        text-align: center;
-        z-index: 1;
-        color: #fff;
-        margin: auto;
-        padding: 1rem;
-    }
-    .showcase-text h1 {
-        font-size: 1.5rem;
-    }
-    .showcase-text h3 {
-        font-size: 1rem;
-        transform: translateX(-20px);
-    }
+@media screen and (max-width: 550px) {
 
     .nav-toggle {
-        right: 15%;
+        right: 10%;
     } 
 
     /* Abuot-page styling */
     #about {
-        height: 100vh;
+        height: 80vh;
     }
     #about img {
         display: none;
@@ -771,7 +740,7 @@ and used alot of it here */
         width: 80%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
     }
     .about-text .presentation {
         font-size: 1rem;
@@ -825,23 +794,29 @@ and used alot of it here */
         padding-bottom: 0;
     }
 
-    /* Form styling */
-    
-    .form-container {
-        height: 95%;
-        margin: 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+
+    /* Showcase/landing */
+    .showcase-content {
+        position: absolute;
+        top: 77%;
+        left: 30%;
+        text-align: center;
+        z-index: 1;
+        color: #fff;
+        margin: auto;
+        padding: 1rem;
+    }
+    .showcase-text h1 {
+        font-size: 1.5rem;
+    }
+    .showcase-text h3 {
+        font-size: 1rem;
+        transform: translateX(-20px);
     }
 
-    #contact {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .contact-img {
-        display: none;
-    }
-
-    
 }
 
 @media screen and (max-width: 330px) {

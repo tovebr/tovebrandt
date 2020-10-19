@@ -1,88 +1,83 @@
+let forular = document.querySelector('form');
 let formValidation = (function() {
 
-    const nameInput = document.getElementById('name');
+    let formItems = Array.from(document.forms[0]);
     const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    const submitBtn = document.getElementById('submit');
 
     function eventListenerSetup() {
-    nameInput.addEventListener('input', evt => textInputValidation(evt.target));
-    emailInput.addEventListener('input', evt => emailValidation(evt.target));
-    messageInput.addEventListener('input', evt => textInputValidation(evt.target));
-    submitBtn.addEventListener('click', evt => validateInput(evt));
+    
+        formItems.forEach(formItem => {
+            if(formItem.type !== 'submit') {
+                formItem.addEventListener('input', evt => inputValidation(evt.target));
+            } else {
+                formItem.addEventListener('click', evt => validateForm(evt));
+            }
+        })
     }
 
-    function textInputValidation(target) {
+    function inputValidation(target) {
+
+        /* Preventing submit-eventListener to put error-class on parent */
+        if(target.type !== 'submit') {
         const formSection = target.parentElement;
 
         if (target.value === '') {
-            formSection.classList = 'form-section error';
+            if(formSection.classList.contains('success')) { 
+                formSection.classList.remove('success');
+            }
+            formSection.classList.add('error');
             showError(formSection, false);
+        } else if (target.type === 'email') {
+            if(!emailInput.validity.valid) {
+                if(formSection.classList.contains('success')) { 
+                    formSection.classList.remove('success');
+                }
+                formSection.classList.add('error')
+                showError(formSection, 'Email must be valid');
+            } else {
+                formSection.classList.remove('error');
+                formSection.classList.add('success');
+            }
         } else {
-            formSection.classList = 'form-section success';
+            formSection.classList.remove('error');
+            formSection.classList.add('success');
         }
     }
-
-    function emailValidation(target) {
-        const formSection = target.parentElement;
-
-        // varför i helvete funkar inte detta!?
-        // const userEmail = target.value;
-        if (emailInput.value === '') {
-            formSection.classList = 'form-section error';
-            showError(formSection, false)
-        } else if (!emailInput.validity.valid) {
-            formSection.classList = 'form-section error';
-            showError(formSection, 'Email must be valid');
-        } else {
-            formSection.classList = 'form-section success';
-        }
     }
 
-    function showError(target, message) {
+    const showError = (target, message) => target.querySelector('.error-message').textContent = !message ? 'Must be filled out' : message;
 
-        message === false ? message = 'Must be filled out' : message = message;
+    function validateForm(evt) {
 
-        const errorContainer = target.querySelector('.error-message');
-        errorContainer.textContent = message;
-    }
-
-    function validateInput(evt) {
-        textInputValidation(nameInput);
-        textInputValidation(messageInput);
-        emailValidation(emailInput);
+        formItems.forEach(formItem => inputValidation(formItem));
 
         const errors = document.querySelectorAll('.error');
-        const errorArr = Array.from(errors);
-        if(errorArr.length > 0) {
+        if(errors.length > 0) {
             evt.preventDefault();
         }
     }
 
     return {
-        init: function(){
-            eventListenerSetup();
-        }
+        init: () => eventListenerSetup()
     }
 })();
 
 let menuCtrl = (function() {
+
     function eventListenerSetup() {
-        const menuLinks = document.querySelectorAll('li');
+
+        const menuUL = document.querySelector('ul');
         const menuCheckbox = document.querySelector('input[type="checkbox"]');
 
-        menuLinks.forEach(cur => cur.addEventListener('click', function() {
+        menuUL.addEventListener('click', evt => {
             menuCheckbox.checked = false;
-        }));
+        });
     }
 
     return {
-        init: function() {
-            eventListenerSetup();
-        }
+        init: () => eventListenerSetup()
     }
 })();
 
 formValidation.init();
-
 menuCtrl.init();

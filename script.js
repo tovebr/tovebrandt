@@ -1,4 +1,3 @@
-let forular = document.querySelector('form');
 let formValidation = (function() {
 
     let formItems = Array.from(document.forms[0]);
@@ -17,7 +16,7 @@ let formValidation = (function() {
 
     function inputValidation(target) {
 
-        /* Preventing submit-eventListener to put error-class on parent */
+        /* Preventing submit-eventListener puting error-class on parent(which is <form>) */
         if(target.type !== 'submit') {
         const formSection = target.parentElement;
 
@@ -28,6 +27,7 @@ let formValidation = (function() {
             formSection.classList.add('error');
             showError(formSection, false);
         } else if (target.type === 'email') {
+
             if(!emailInput.validity.valid) {
                 if(formSection.classList.contains('success')) { 
                     formSection.classList.remove('success');
@@ -38,6 +38,7 @@ let formValidation = (function() {
                 formSection.classList.remove('error');
                 formSection.classList.add('success');
             }
+
         } else {
             formSection.classList.remove('error');
             formSection.classList.add('success');

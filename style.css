@@ -243,16 +243,17 @@ h1 {
 .img-container {
     width: 17rem;
     height: 17rem;
-    /* width: 17rem;
-    height: 17rem; */
     position: relative;
     flex: 1;
+    flex-shrink: 1;
     margin: 2rem;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0,0,0.3);
 }
+
 .text-container {
     flex: 2;
+    flex-shrink: 2;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -289,24 +290,6 @@ h1 {
     z-index: 3;
     transition: background 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
-
-/* .img-container a:hover {
-    background: var(--main-dark);
-} */
-
-/* #colab .text-container a {
-    background: var(--main-light);
-    text-decoration: none;
-    color: var(--main-color);
-    text-align: center;
-    padding: .4rem;
-    border: 2px  solid var(--main-color);
-    border-radius: 4px;
-    width: 20%;
-    font-size: 1rem;
-    font-weight: bolder;
-    margin-top: 1rem;
-} */
 
 .text-container h2 {
     margin-bottom: 1rem;
@@ -355,8 +338,7 @@ https://www.udemy.com/course/modern-html-css-from-the-beginning/
 }
 
 /* Form styling 
-Learned alot from this tutorial: https://www.youtube.com/watch?v=rsd4FNGTRBw 
-and used alot of it here */
+Learned alot from this tutorial: https://www.youtube.com/watch?v=rsd4FNGTRBw */
 #contact {
     max-width: 1100px;
     margin: 3rem auto 3rem auto;
@@ -506,12 +488,13 @@ and used alot of it here */
     padding: 1rem;
 }
 
-
+/* Animation for main title on landing page */
 @keyframes showContent {
     from {transform: translateX(1000px); opacity: 0;}
     to {transform: translateX(0); opacity:1;}
 }
 
+/* Media query fixing problems between desktop and ipad-width */
 @media screen and (max-width: 790px) {
     .showcase-content h1 {
         font-size: 2rem;
@@ -540,7 +523,14 @@ and used alot of it here */
     }
 }
 
+/* Media queries for ipad */
 @media screen and (max-width: 768px) {
+
+    /* Hamburger fold-out menu in css! 
+    source: https://codepen.io/erikterwan/pen/EVzeRP
+    also the Brad Traversy udemyclass:
+    https://www.udemy.com/course/modern-html-css-from-the-beginning/
+    (in the fold-out-hamburger-menu-part) */
 
     .nav-container {
         height: 4.5rem;
@@ -638,10 +628,12 @@ and used alot of it here */
         opacity: 0;
     }
 
+    /* Showcase */
     .showcase {
         height: 90vh;
     }
 
+    /*  About */
     #about {
         height: 70vh;
     }
@@ -663,23 +655,9 @@ and used alot of it here */
         margin-left: 5rem;
     }
 
-    .img-container {
-        flex: 1;
-    }
-
-    .text-container {
-        flex: 1;
-
-    }
-
+    /* Hover-effects are not useful on touchscreens so this part 
+    over-writes some of it, kept hover on link in case its of slim-desktop-user */
     .img-container::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--main-color);
         opacity: 0;
         transform: translate(-500px, -500px) scale(3) rotate(-28deg);
         z-index: 2;
@@ -687,18 +665,18 @@ and used alot of it here */
     }
     
     .img-container:hover::before {
-        transform: (-500px, -500px) scale(3) rotate(-28deg);
+        transform: translate(-500px, -500px) scale(3) rotate(-28deg);
     }
     .img-container:hover .colab-img {
         transform: scale(1);
     }
     
     .img-container:hover a {
-        background: rgb(236, 235, 235, .3);
+        background: rgba(60, 136, 163, 0.3);
     }
     
     .img-container:hover a:hover {
-        background: rgb(236, 235, 235, .3);
+        background: rgba(60, 136, 163, 0.6);
     }
 
     /* Form styling */
@@ -723,7 +701,7 @@ and used alot of it here */
         right: 10%;
     } 
 
-    /* Abuot-page styling */
+    /* About-page styling */
     #about {
         height: 80vh;
     }
@@ -798,6 +776,10 @@ and used alot of it here */
 
 @media screen and (max-width: 480px) {
 
+    .nav-toggle {
+        right: 15%;
+        }
+
     /* Showcase/landing */
     .showcase-content {
         position: absolute;
@@ -820,16 +802,9 @@ and used alot of it here */
 }
 
 @media screen and (max-width: 330px) {
+
     .showcase {
         height:85vh;
-    }
-    .img-container {
-    width: 13rem;
-    height: 13rem;
-    }
-
-    .nav-toggle {
-    right: 15%;
     }
 
     .about-text .presentation, 
@@ -838,28 +813,29 @@ and used alot of it here */
         padding-left: 0;
     }
 
-    #contact {
-        height: 75vh;
-    }
-
-    .form-container {
-        width: 90vw;
-        height: 75vh;
-    }
-
-    .form textarea {
-        width: 15rem;
-    }
-
     .img-container {
-        overflow: hidden;
-    }
+        width: 13rem;
+        height: 13rem;
+        }
 
     .img-container a {
         font-size: 1.2rem;
         padding: .3rem;
         top: 70%;
         
+    }
+
+    #contact {
+        height: 75vh;
+    }
+
+    .form-container {
+        width: 90vw;
+        height: 80vh;
+    }
+
+    .form textarea {
+        width: 15rem;
     }
 
     .footer {

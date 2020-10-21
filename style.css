@@ -382,7 +382,7 @@ Learned alot from this tutorial: https://www.youtube.com/watch?v=rsd4FNGTRBw */
 .form-container {
     position: absolute;
     max-width: 20rem;
-    height: 70%;
+    height: 80%;
     background: rgb(214, 253, 245);
     /* border-radius: 5px; */
     overflow: hidden;

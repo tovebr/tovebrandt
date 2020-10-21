@@ -690,6 +690,11 @@ Learned alot from this tutorial: https://www.youtube.com/watch?v=rsd4FNGTRBw */
         background: rgba(60, 136, 163, 0.6);
     }
 
+    .img-container,
+    .text-container {
+        flex: 1;
+    }
+
     /* Form styling */
 
     #contact {

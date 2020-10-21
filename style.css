@@ -703,6 +703,7 @@ Learned alot from this tutorial: https://www.youtube.com/watch?v=rsd4FNGTRBw */
     
     .form-container {
         margin: 0 auto;
+        height: 80vh;
     }
 }
 
@@ -858,7 +859,7 @@ Learned alot from this tutorial: https://www.youtube.com/watch?v=rsd4FNGTRBw */
 
     .form-container {
         width: 90vw;
-        height: 80vh;
+        height: 90vh;
     }
 
     .form textarea {
